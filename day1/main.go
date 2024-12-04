@@ -2,6 +2,7 @@ package main
 
 import (
 	_ "embed"
+	"flag"
 	"fmt"
 	"os"
 	"sort"
@@ -10,10 +11,8 @@ import (
 )
 
 func main() {
-	mode := "a"
-	if len(os.Args) >= 2 {
-		mode = os.Args[1]
-	}
+	mode := flag.String("mode", "a", "Mode a/b")
+	flag.Parse()
 
 	left, right, err := getInputs(rawInput)
 	if err != nil {
@@ -21,7 +20,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	switch mode {
+	switch *mode {
 	case "a":
 		sort.Slice(left, func(i, j int) bool {
 			return left[i] < left[j]
