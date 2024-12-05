@@ -8,7 +8,7 @@ import (
 	"strings"
 )
 
-func main() {
+func bChallenge() {
 	levels := strings.Split(input, "\n")
 	count := 0
 	for _, lls := range levels {
@@ -65,6 +65,3 @@ func checkLevel(level []int, increase bool) bool {
 	}
 	return true
 }
-
-//go:embed input.txt
-var input string

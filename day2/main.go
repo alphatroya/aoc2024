@@ -2,13 +2,29 @@ package main
 
 import (
 	_ "embed"
+	"flag"
 	"fmt"
 	"os"
 	"strconv"
 	"strings"
 )
 
+//go:embed input.txt
+var input string
+
 func main() {
+	mode := flag.String("mode", "a", "Mode a/b")
+	flag.Parse()
+
+	switch *mode {
+	case "a":
+		aChallenge()
+	case "b":
+		bChallenge()
+	}
+}
+
+func aChallenge() {
 	levels := strings.Split(input, "\n")
 	count := 0
 	for _, lls := range levels {
@@ -61,6 +77,3 @@ func isDecreasingLevel(level []int) bool {
 	}
 	return false
 }
-
-//go:embed input.txt
-var input string
