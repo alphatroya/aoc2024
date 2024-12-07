@@ -1,6 +1,6 @@
 package main
 
-func sumOfCorrectResults(data []data) int {
+func aSumOfCorrectResults(data []data) int {
 	sum := 0
 	for _, d := range data {
 		if calc(d.result, d.components[0], d.components[1:]) {

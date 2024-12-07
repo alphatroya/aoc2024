@@ -28,8 +28,9 @@ func main() {
 
 	switch *mode {
 	case "a":
-		fmt.Println(sumOfCorrectResults(dataInput))
+		fmt.Println(aSumOfCorrectResults(dataInput))
 	case "b":
+		fmt.Println(bSumOfCorrectResults(dataInput))
 	}
 }
 
